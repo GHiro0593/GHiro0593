@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ระบบสุ่มกาชา (มีรูป)</title>
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      text-align: center;
+      background-color: #f0f0f0;
+      padding: 40px;
+    }
+    button {
+      font-size: 20px;
+      padding: 12px 24px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    button:hover {
+      background-color: #004c99;
+    }
+    .gacha-result img {
+      width: 200px;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .gacha-result p {
+      font-size: 22px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎲 มาสุ่มป๋ากันครับแมวน้ำทุกคน </h1>
+  <button onclick="drawGacha()">สุ่มเลย!</button>
+
+  <div class="gacha-result" id="result">
+    <p>กดปุ่มเพื่อสุ่มรางวัล</p>
+  </div>
+
+  <script>
+    const rewards = [
+      {
+        name: "🐻‍❄️ ป๋าเรืองแสง",
+        image: "https://media.discordapp.net/attachments/657522621335994370/1379451096442867812/IMG_6169-2.png?ex=68404972&is=683ef7f2&hm=0d3a979637ef98ad0f94afcebde11ed49c5e89add81f43e40545b9d674a68fac&=&format=webp&quality=lossless&width=881&height=930"
+      },
+      {
+        name: "🐻‍❄️ I'm not your father.",
+        image: "https://cdn.discordapp.com/attachments/657522621335994370/1379452132075507793/AP1GczPkJRu-_lQp_Kc_dsJZincQJOI98iB6jb9va14uxowQV1WNlaspShZDw1640-h923-s-no-gm.png?ex=68404a69&is=683ef8e9&hm=bd32c8ed665abb579fbf9e646b8716d39a02a4c112dd8cfde7129697e43c08cf&"
+      },
+      {
+        name: "🐻‍❄️ วันนี้วันพ่อ ไหว้พ่อรึยังจ๊ะ",
+        image: "https://media.discordapp.net/attachments/657522621335994370/1379452512091770880/E81D311B-A4A7-40D1-8B18-D8A4099C2C4E.jpg?ex=68404ac3&is=683ef943&hm=b38ae3c853fd3407755d54664c12e3ed74bd6e254ae157ea98f46f4bc45fb25f&=&format=webp&width=930&height=930"
+      },
+      {
+        name: "🐻‍❄️ ゴゴゴゴゴ",
+        image: "https://media.discordapp.net/attachments/657522621335994370/1379453710626984027/IMG_4647.png?ex=68404be1&is=683efa61&hm=18b3d786e68709becfa9e691cd3fc4a736e85798de6c24d5de565933d11356d4&=&format=webp&quality=lossless&width=988&height=800"
+      },
+      {
+        name: "🐻‍❄️ ที่เห็นตาแดงไม่ใช่เพราะอะไรครับ แสงแฟลช📸",
+        image: "https://media.discordapp.net/attachments/657522621335994370/1379453710152892426/cachedImage.png?ex=68404be1&is=683efa61&hm=3dc9a8b1152ca10604ad880ae50858397aa627e5fde3c108486be3c1a674d701&=&format=webp&quality=lossless&width=628&height=800"
+      },
+      {
+        name: "🐻‍❄️ ไอหนุ่มที่เธอบอกว่าเท่ มันเท่เท่าเราหรือป่าว? ",
+        image: "https://media.discordapp.net/attachments/657522621335994370/1379453711507783690/IMG_2359.png?ex=68404be1&is=683efa61&hm=bd5ce4b9a8f660bb76f69a8ef7d2430c763d0d7526e3fc10b1b3a8b04ba52c43&=&format=webp&quality=lossless&width=556&height=800"
+      }
+    ];
+
+    function drawGacha() {
+      const randomIndex = Math.floor(Math.random() * rewards.length);
+      const reward = rewards[randomIndex];
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = `
+        <img src="${reward.image}" alt="${reward.name}">
+        <p>คุณได้รับ: ${reward.name}</p>
+      `;
+    }
+  </script>
+
+</body>
+</html>
